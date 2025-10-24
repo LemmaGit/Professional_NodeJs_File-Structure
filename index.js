@@ -1,10 +1,12 @@
 const express = require("express");
-const app = express();
 const mongoose = require("mongoose");
 const router = require("./routes/blog.route");
+const config = require("./config/config");
+
+const app = express();
 
 mongoose
-  .connect("mongodb://127.0.0.1:27017/blog_app")
+  .connect(config.dbConnection)
   .then(() => {
     console.log("connected to mongodb");
   })
@@ -15,6 +17,6 @@ mongoose
 app.use(express.json());
 app.use(router);
 
-app.listen(3000, () => {
-  console.log("server listening on port 3000");
+app.listen(config.port, () => {
+  console.log(`Server listening on port ${config.port}`);
 });
