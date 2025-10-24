@@ -1,10 +1,11 @@
 const Blog = require("./../models/blog.model");
-const { createBlogSchema } = require("./../validations/blog.validation");
+// const { createBlogSchema } = require("./../validations/blog.validation");
 
 const createBlog = async (req, res) => {
   try {
-    const value = await createBlogSchema.body.validateAsync(req.body);
-    await Blog.create(value);
+    // const value = await createBlogSchema.body.validateAsync(req.body);
+    // await Blog.create(value);
+    await Blog.create(req.body);
     res.send({ success: true, message: "Blog created successfyly" });
   } catch (error) {
     res.send({ error: true, message: error.details });
