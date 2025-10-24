@@ -1,10 +1,5 @@
-const Joi = require("joi");
 require("dotenv").config();
-
-const envVarSchema = Joi.object({
-  DB_CONNECTION: Joi.string().required(),
-  PORT: Joi.number().positive().default(3000),
-}).unknown();
+const envVarSchema = require("./../validations/env.validation");
 
 const { value: envVars, error } = envVarSchema.validate(process.env);
 
