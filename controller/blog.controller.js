@@ -7,7 +7,6 @@ const createBlog = catchAsync(async (req, res) => {
 });
 
 const getBlogs = catchAsync(async (req, res) => {
-  HTMLElementr();
   const blogs = await Blog.find({});
   res.json(blogs);
 });
