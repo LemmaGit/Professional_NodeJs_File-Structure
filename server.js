@@ -3,9 +3,10 @@ const router = require("./routes/blog.route");
 const { errorHandler, errorConvertor } = require("./middlewares/error");
 const ApiError = require("./utils/ApiError");
 const { StatusCodes } = require("http-status-codes");
-
+const morgan = require("./config/morgan");
 const app = express();
 
+app.use(morgan);
 app.use(express.json());
 app.use(router);
 app.use((req, res, next) =>
