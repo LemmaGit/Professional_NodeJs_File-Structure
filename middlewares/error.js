@@ -22,7 +22,7 @@ const errorHandler = (err, req, res, next) => {
 
   if (config.env === "production" && !err.isOperational) {
     statusCode = StatusCodes.INTERNAL_SERVER_ERROR;
-    message: StatusCodes[statusCode];
+    message = StatusCodes[statusCode];
   }
   res.locals.errorMessage = message;
 
