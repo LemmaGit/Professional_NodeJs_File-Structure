@@ -6,7 +6,8 @@ const { StatusCodes } = require("http-status-codes");
 const morgan = require("./config/morgan");
 const app = express();
 
-app.use(morgan);
+app.use(morgan.successHandler);
+app.use(morgan.errorHandler);
 app.use(express.json());
 app.use(router);
 app.use((req, res, next) =>
